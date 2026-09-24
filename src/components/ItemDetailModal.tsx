@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem } from '../data/menuData';
-import { X, Sparkles, MapPin, Coffee, Check } from 'lucide-react';
+import { X, ShoppingBag, MapPin, Coffee, Check } from 'lucide-react';
 
 interface ItemDetailModalProps {
   item: MenuItem | null;
@@ -137,8 +137,8 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
               }}
               className="w-full flex items-center justify-center gap-2 py-2.5 text-xs uppercase tracking-wider font-semibold border border-[#F4B62F] text-[#F4B62F] hover:bg-[#F4B62F]/10 rounded-sm transition-all"
             >
-              <Sparkles className="w-4 h-4 text-[#F4B62F]" />
-              Find Best Pairings with AI Sommelier
+              <ShoppingBag className="w-4 h-4 text-[#F4B62F]" />
+              Add to Order Bag
             </button>
 
             <button

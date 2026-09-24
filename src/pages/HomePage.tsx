@@ -1,6 +1,6 @@
 import React from 'react';
 import { MENU_ITEMS, MenuItem } from '../data/menuData';
-import { ArrowDown, Instagram, Sparkles, MapPin, ChevronRight, Clock, Coffee } from 'lucide-react';
+import { ArrowDown, Instagram, ShoppingBag, MapPin, ChevronRight, Clock, Coffee } from 'lucide-react';
 import { ChaiAvenueLogo, ChaiCupMark } from '../components/ChaiAvenueLogo';
 
 interface HomePageProps {
@@ -68,7 +68,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   ];
 
   const instagramPosts = [
-    { image: '/images/karak_chai.jpg', caption: 'Karak simmered to absolute perfection ☕' },
+    { image: '/images/karak_chai.jpg', caption: 'Karak simmered to absolute perfection' },
     { image: '/images/lava_cake.jpg', caption: 'Warm Belgian molten core waiting for your spoon' },
     { image: '/images/caffe_latte.jpg', caption: 'Fresh morning espresso pulls at Sector L' },
     { image: '/images/friends_chai.jpg', caption: 'Evenings made of deep conversations and endless cups' },
@@ -92,31 +92,33 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
-          {/* Official Chai Avenue Teacup Icon with Steam & Star over CHAI AVENUE */}
-          <div className="flex flex-col items-center justify-center mb-4">
-            <ChaiCupMark className="w-24 h-16 sm:w-32 sm:h-20 text-[#F4B62F] filter drop-shadow-[0_4px_24px_rgba(244,182,47,0.45)] transform hover:scale-105 transition-transform duration-300" />
+          {/* Official Chai Avenue Logo Artwork */}
+          <div className="flex flex-col items-center justify-center mb-6">
+            <div className="relative group max-w-[320px] sm:max-w-[420px] md:max-w-[480px] w-full mx-auto">
+              {/* Warm golden ambient glow backplate */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#F4B62F]/20 via-[#F4B62F]/40 to-[#F4B62F]/20 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500" />
+              <div className="relative rounded-2xl overflow-hidden border border-[#F4B62F]/40 bg-[#111111]/90 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(244,182,47,0.2)] p-3 sm:p-4 md:p-5 backdrop-blur-md">
+                <img
+                  src="/images/chai_avenue_official_logo.jpg"
+                  alt="Chai Avenue - It only tastes expensive"
+                  className="w-full h-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+            </div>
             
-            <div className="inline-flex items-center justify-center gap-2 opacity-95 mt-2">
-              <span className="h-px w-8 bg-[#F4B62F]/60" />
+            <div className="inline-flex items-center justify-center gap-3 opacity-95 mt-5">
+              <span className="h-px w-10 sm:w-16 bg-[#F4B62F]/60" />
               <span className="text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase text-[#F4B62F] font-semibold">
                 DHA Phase 1 · Lahore
               </span>
-              <span className="h-px w-8 bg-[#F4B62F]/60" />
+              <span className="h-px w-10 sm:w-16 bg-[#F4B62F]/60" />
             </div>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="font-serif tracking-[0.16em] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase text-[#F6F0D8] leading-[1.05]">
-            CHAI AVENUE
-          </h1>
-
-          {/* Subheading */}
-          <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#F4B62F] mt-4 tracking-wide font-normal">
-            It only tastes expensive.
-          </p>
+          <h1 className="sr-only">Chai Avenue - It only tastes expensive - DHA Phase 1 Lahore</h1>
 
           {/* Supporting Text */}
-          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#E8DFC7] mt-6 leading-relaxed font-light font-sans">
+          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#E8DFC7] mt-3 leading-relaxed font-light font-sans">
             Premium chai, coffee, shakes, smoothies, desserts and handcrafted signature drinks in the heart of DHA Phase 1.
           </p>
 
@@ -136,14 +138,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
           </div>
 
-          {/* AI Flavor Sommelier prompt pill */}
+          {/* Order Bag prompt pill */}
           <div className="mt-8">
             <button
               onClick={onOpenSommelier}
               className="inline-flex items-center gap-2 text-xs text-[#C7BEA5] hover:text-[#F4B62F] transition-colors py-1.5 px-3 rounded-full bg-black/40 border border-[#333333] backdrop-blur-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F4B62F]" />
-              <span>Not sure what to try? Ask our AI Chai Sommelier</span>
+              <ShoppingBag className="w-3.5 h-3.5 text-[#F4B62F]" />
+              <span>Quick Order Bag: Dine-In, Takeaway & DHA Delivery</span>
             </button>
           </div>
         </div>

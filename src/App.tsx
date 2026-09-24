@@ -12,7 +12,7 @@ import { ItemDetailModal } from './components/ItemDetailModal';
 import { ChaiSommelierModal } from './components/ChaiSommelierModal';
 import { MenuItem } from './data/menuData';
 import { ChaiCupMark } from './components/ChaiAvenueLogo';
-import { Sparkles } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 export function App() {
   const [activePage, setActivePage] = useState<string>('home');
@@ -110,7 +110,7 @@ export function App() {
         {activePage === 'contact' && <ContactPage />}
       </main>
 
-      {/* Floating Action Button for AI Sommelier */}
+      {/* Floating Action Button for Order Bag */}
       <div className="fixed bottom-6 right-6 z-40">
         <button
           onClick={() => {
@@ -119,11 +119,11 @@ export function App() {
             setSommelierOpen(true);
           }}
           className="flex items-center gap-2.5 px-4 py-3 bg-[#181818]/90 hover:bg-[#202020] text-[#F4B62F] border border-[#F4B62F]/50 hover:border-[#F4B62F] rounded-full shadow-2xl backdrop-blur-md transition-all transform hover:scale-105 group"
-          title="Chai Sommelier: Ask AI for flavor pairings"
+          title="Open Order Bag"
         >
-          <ChaiCupMark className="w-5 h-4 text-[#F4B62F] animate-pulse" />
+          <ShoppingBag className="w-4 h-4 text-[#F4B62F]" />
           <span className="text-xs uppercase font-bold tracking-wider hidden sm:inline text-[#F6F0D8] group-hover:text-[#F4B62F] transition-colors">
-            Ask Sommelier
+            Order Bag
           </span>
         </button>
       </div>

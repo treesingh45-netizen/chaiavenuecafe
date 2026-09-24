@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LogoProps {
   className?: string;
-  variant?: 'full' | 'compact' | 'icon' | 'badge' | 'cup' | 'mark-only';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  variant?: 'full' | 'compact' | 'icon' | 'badge' | 'cup' | 'mark-only' | 'official' | 'image';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
-// Official Chai Avenue Cup Mark (exact geometry matching the user's uploaded icon)
+const OFFICIAL_LOGO_SRC = '/images/chai_avenue_official_logo.jpg';
+
+// Official Chai Avenue Cup Mark (exact geometry matching the brand icon)
 export const ChaiCupMark: React.FC<{ className?: string; color?: string }> = ({
   className = "w-10 h-10",
   color = "#F4B62F",
@@ -65,37 +67,12 @@ export const ChaiCupMark: React.FC<{ className?: string; color?: string }> = ({
   </svg>
 );
 
-// Decorative Golden Flourish
-const GoldFlourish = () => (
-  <svg
-    viewBox="0 0 180 34"
-    className="w-36 h-7 mx-auto text-[#F4B62F]"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle cx="90" cy="12" r="3.5" />
-    <circle cx="90" cy="24" r="2" />
-    <path
-      d="M 90 6 L 90 28 M 80 18 C 70 12, 60 10, 45 18 C 30 26, 20 16, 28 8 C 35 0, 50 12, 62 18 C 72 23, 85 20, 90 18 C 95 20, 108 23, 118 18 C 130 12, 145 0, 152 8 C 160 16, 150 26, 135 18 C 120 10, 110 12, 100 18"
-      stroke="#F4B62F"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      fill="none"
-    />
-    <circle cx="28" cy="8" r="2" fill="#F4B62F" />
-    <circle cx="152" cy="8" r="2" fill="#F4B62F" />
-  </svg>
-);
-
 export const ChaiAvenueLogo: React.FC<LogoProps> = ({
   className = '',
   variant = 'compact',
   size = 'md',
 }) => {
-  const [imageError, setImageError] = useState(false);
-  const badgeSrc = '/images/chai_avenue_badge.svg';
-
-  // Standalone Cup Icon (Image 2)
+  // Standalone Cup Icon
   if (variant === 'cup' || variant === 'icon' || variant === 'mark-only') {
     return (
       <div className={`inline-flex items-center justify-center ${className}`}>
@@ -104,20 +81,21 @@ export const ChaiAvenueLogo: React.FC<LogoProps> = ({
     );
   }
 
-  // Circular Logo Badge (Image 1)
+  // Circular or Rounded Logo Badge
   if (variant === 'badge') {
     const badgeSizes = {
-      sm: 'w-16 h-16',
-      md: 'w-24 h-24',
-      lg: 'w-32 h-32',
-      xl: 'w-40 h-40',
+      sm: 'w-14 h-14',
+      md: 'w-20 h-20',
+      lg: 'w-28 h-28',
+      xl: 'w-36 h-36',
+      '2xl': 'w-48 h-48',
     };
     return (
-      <div className={`relative rounded-full overflow-hidden shadow-2xl ${badgeSizes[size]} ${className}`}>
+      <div className={`relative rounded-xl overflow-hidden shadow-2xl border border-[#F4B62F]/40 bg-[#111111] p-1.5 ${badgeSizes[size] || badgeSizes.md} ${className}`}>
         <img
-          src={badgeSrc}
-          alt="Chai Avenue Circular Emblem"
-          className="w-full h-full object-contain"
+          src={OFFICIAL_LOGO_SRC}
+          alt="Chai Avenue Official Emblem"
+          className="w-full h-full object-cover rounded-lg"
         />
       </div>
     );
@@ -127,9 +105,9 @@ export const ChaiAvenueLogo: React.FC<LogoProps> = ({
   if (variant === 'compact') {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
-        {/* Cup icon housed in warm dark circular frame with gold ring */}
-        <div className="relative w-11 h-11 rounded-full border border-[#F4B62F]/60 group-hover:border-[#F4B62F] shadow-lg shrink-0 bg-[#161616] p-1.5 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-          <ChaiCupMark className="w-8 h-8 text-[#F4B62F]" />
+        {/* Only the official cup icon housed in dark frame with gold border */}
+        <div className="relative w-11 h-11 rounded-lg border border-[#F4B62F]/70 group-hover:border-[#F4B62F] shadow-md shrink-0 bg-[#141414] p-1.5 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+          <ChaiCupMark className="w-7 h-7 text-[#F4B62F]" />
         </div>
         <div className="flex flex-col text-left">
           <div className="font-serif tracking-[0.2em] font-bold text-lg leading-none text-[#F6F0D8] group-hover:text-[#F4B62F] transition-colors">
@@ -143,36 +121,23 @@ export const ChaiAvenueLogo: React.FC<LogoProps> = ({
     );
   }
 
-  // Full Brand Logo (Image 1 layout: Cup Icon + CHAI AVENUE + Tagline + Flourish)
+  // Official Full Image Logo (Exact requested image)
+  const sizeClasses = {
+    sm: 'max-w-[200px]',
+    md: 'max-w-[280px]',
+    lg: 'max-w-[360px]',
+    xl: 'max-w-[480px]',
+    '2xl': 'max-w-[560px]',
+  };
+
   return (
     <div className={`flex flex-col items-center text-center select-none ${className}`}>
-      {/* Cup icon at top */}
-      <div className="mb-2">
-        <ChaiCupMark
-          className={
-            size === 'xl'
-              ? 'w-24 h-16'
-              : size === 'lg'
-              ? 'w-20 h-14'
-              : 'w-16 h-11'
-          }
+      <div className={`w-full ${sizeClasses[size] || sizeClasses.md} mx-auto rounded-2xl overflow-hidden border border-[#F4B62F]/30 bg-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(244,182,47,0.15)] p-2.5 sm:p-3 transition-transform duration-300 hover:scale-[1.02]`}>
+        <img
+          src={OFFICIAL_LOGO_SRC}
+          alt="Chai Avenue - It only tastes expensive"
+          className="w-full h-auto object-contain rounded-xl"
         />
-      </div>
-
-      {/* Main serif wordmark */}
-      <h2 className="font-serif tracking-[0.22em] text-[#F6F0D8] uppercase font-bold leading-[1.05] transition-colors">
-        <span className="block text-3xl md:text-4xl tracking-[0.3em]">CHAI</span>
-        <span className="block text-2xl md:text-3xl tracking-[0.24em] mt-0.5">AVENUE</span>
-      </h2>
-
-      {/* Tagline */}
-      <p className="text-xs md:text-sm font-sans tracking-[0.18em] text-[#E8DFC7] mt-3 font-normal italic">
-        It only tastes expensive
-      </p>
-
-      {/* Decorative Gold Flourish */}
-      <div className="mt-2.5">
-        <GoldFlourish />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MENU_ITEMS, MenuItem } from '../data/menuData';
-import { Sparkles, Eye, IceCream, Utensils, Heart } from 'lucide-react';
+import { ShoppingBag, Eye, IceCream, Utensils, Heart } from 'lucide-react';
 
 interface ShakesDessertsPageProps {
   onSelectItem: (item: MenuItem) => void;
@@ -56,8 +56,8 @@ export const ShakesDessertsPage: React.FC<ShakesDessertsPageProps> = ({
               onClick={onOpenSommelier}
               className="px-6 py-3 bg-[#1B1B1B] hover:bg-[#252525] border border-[#F4B62F]/40 hover:border-[#F4B62F] text-[#F4B62F] text-xs font-semibold uppercase tracking-[0.18em] rounded-sm transition-all flex items-center gap-2"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              Dessert & Chai Pairing Advisor
+              <ShoppingBag className="w-3.5 h-3.5" />
+              Quick Order Bag
             </button>
           </div>
         </div>

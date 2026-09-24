@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChaiAvenueLogo } from './ChaiAvenueLogo';
-import { Menu, X, Sparkles, Phone } from 'lucide-react';
+import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
 
 interface NavbarProps {
   activePage: string;
@@ -90,14 +90,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Zone 3: Actions */}
             <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
-              {/* AI Sommelier trigger button */}
+              {/* Order Bag trigger button */}
               <button
                 onClick={onOpenSommelier}
-                className="flex items-center gap-2 px-3 py-2 text-xs tracking-wider uppercase font-medium text-[#F4B62F] border border-[#F4B62F]/40 rounded-sm hover:border-[#F4B62F] hover:bg-[#F4B62F]/10 transition-all focus:outline-none whitespace-nowrap"
-                title="Ask Chai Avenue AI Sommelier for flavor recommendations"
+                className="flex items-center gap-2 px-3 py-2 text-xs tracking-wider uppercase font-medium text-[#F4B62F] border border-[#F4B62F]/50 rounded-sm hover:border-[#F4B62F] hover:bg-[#F4B62F]/10 transition-all focus:outline-none whitespace-nowrap"
+                title="Open Chai Avenue Order Bag"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#F4B62F]" />
-                <span className="hidden lg:inline">AI Sommelier</span>
+                <ShoppingBag className="w-3.5 h-3.5 text-[#F4B62F]" />
+                <span className="hidden lg:inline">Order Bag</span>
               </button>
 
               {/* View Menu CTA Button */}
@@ -114,9 +114,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={onOpenSommelier}
                 className="p-2 text-[#F4B62F] border border-[#F4B62F]/30 rounded-sm hover:bg-[#F4B62F]/10 focus:outline-none"
-                aria-label="Open Chai Sommelier"
+                aria-label="Open Order Bag"
               >
-                <Sparkles className="w-4 h-4" />
+                <ShoppingBag className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -164,8 +164,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase tracking-wider font-semibold border border-[#F4B62F] text-[#F4B62F] rounded-sm hover:bg-[#F4B62F]/10"
               >
-                <Sparkles className="w-4 h-4" />
-                Ask Chai Sommelier
+                <ShoppingBag className="w-4 h-4" />
+                Order Bag
               </button>
 
               <button

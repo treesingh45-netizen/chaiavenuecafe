@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MENU_ITEMS, MenuItem } from '../data/menuData';
-import { Coffee, Sparkles, Flame, Snowflake, ChevronRight } from 'lucide-react';
+import { Coffee, ShoppingBag, Flame, Snowflake, ChevronRight } from 'lucide-react';
 
 interface ChaiCoffeePageProps {
   onSelectItem: (item: MenuItem) => void;
@@ -51,8 +51,8 @@ export const ChaiCoffeePage: React.FC<ChaiCoffeePageProps> = ({
               onClick={onOpenSommelier}
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] hover:bg-[#252525] border border-[#F4B62F]/40 hover:border-[#F4B62F] rounded-sm text-xs font-semibold text-[#F4B62F] transition-all shadow-md"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F4B62F]" />
-              <span>Which brew fits your mood today? Ask Sommelier</span>
+              <ShoppingBag className="w-3.5 h-3.5 text-[#F4B62F]" />
+              <span>Order Bag: Instant Dine-In & Takeaway</span>
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MENU_ITEMS, MenuItem } from '../data/menuData';
-import { Search, Sparkles, MapPin, Coffee, Info, Check } from 'lucide-react';
+import { Search, ShoppingBag, MapPin, Coffee, Info, Check } from 'lucide-react';
 
 interface MenuPageProps {
   onSelectItem: (item: MenuItem) => void;
@@ -53,14 +53,14 @@ export const MenuPage: React.FC<MenuPageProps> = ({
             Traditional chai brews, artisan roasts, rich milkshakes, and fresh laboratory pastries.
           </p>
 
-          {/* Sommelier Banner */}
+          {/* Order Bag Banner */}
           <div className="pt-4">
             <button
               onClick={onOpenSommelier}
               className="inline-flex items-center gap-2.5 px-4 py-2 bg-[#1A1A1A] hover:bg-[#242424] border border-[#F4B62F]/40 hover:border-[#F4B62F] rounded-sm text-xs font-semibold text-[#F4B62F] transition-all shadow-md"
             >
-              <Sparkles className="w-4 h-4 text-[#F4B62F]" />
-              <span>Need help choosing? Ask the AI Chai Sommelier</span>
+              <ShoppingBag className="w-4 h-4 text-[#F4B62F]" />
+              <span>Ready to order? Open Quick Order Bag</span>
             </button>
           </div>
         </div>

@@ -282,7 +282,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       {/* 5. Brand Statement */}
       <section className="py-28 bg-[#111111] text-center border-t border-[#222222] relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <ChaiAvenueLogo variant="icon" className="w-16 h-16 mx-auto mb-4" />
+          <ChaiAvenueLogo variant="full" size="md" className="mx-auto mb-6" />
 
           {/* Large centered brand statement */}
           <h2 className="font-serif italic text-3xl sm:text-5xl md:text-6xl text-[#F6F0D8] font-bold tracking-tight">
