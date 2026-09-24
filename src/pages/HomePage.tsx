@@ -91,35 +91,35 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
-          {/* Official Chai Avenue Logo Artwork */}
-          <div className="flex flex-col items-center justify-center mb-6">
-            <div className="relative group max-w-[320px] sm:max-w-[420px] md:max-w-[480px] w-full mx-auto">
-              {/* Warm golden ambient glow backplate */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#F4B62F]/20 via-[#F4B62F]/40 to-[#F4B62F]/20 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500" />
-              <div className="relative rounded-2xl overflow-hidden border border-[#F4B62F]/40 bg-[#111111]/90 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(244,182,47,0.2)] p-3 sm:p-4 md:p-5 backdrop-blur-md">
-                <img
-                  src="/images/chai_avenue_official_logo.jpg"
-                  alt="Chai Avenue - It only tastes expensive"
-                  className="w-full h-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
-                />
-              </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
+          {/* Brand Icon Crest */}
+          <div className="flex flex-col items-center justify-center mb-5">
+            <div className="relative group inline-flex items-center justify-center p-3 rounded-2xl bg-[#141414]/80 border border-[#F4B62F]/40 shadow-[0_0_25px_rgba(244,182,47,0.2)] backdrop-blur-md mb-3">
+              <ChaiCupMark className="w-9 h-9 sm:w-11 sm:h-11 text-[#F4B62F]" />
             </div>
             
-            <div className="inline-flex items-center justify-center gap-3 opacity-95 mt-5">
-              <span className="h-px w-10 sm:w-16 bg-[#F4B62F]/60" />
-              <span className="text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase text-[#F4B62F] font-semibold">
+            <div className="inline-flex items-center justify-center gap-3 opacity-95">
+              <span className="h-px w-8 sm:w-14 bg-[#F4B62F]/60" />
+              <span className="text-[10px] sm:text-xs font-sans tracking-[0.3em] uppercase text-[#F4B62F] font-semibold">
                 DHA Phase 1 · Lahore
               </span>
-              <span className="h-px w-10 sm:w-16 bg-[#F4B62F]/60" />
+              <span className="h-px w-8 sm:w-14 bg-[#F4B62F]/60" />
             </div>
           </div>
 
-          <h1 className="sr-only">Chai Avenue - It only tastes expensive - DHA Phase 1 Lahore</h1>
+          {/* Main Editorial Text Heading */}
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.14em] text-[#F6F0D8] uppercase leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+            CHAI AVENUE
+          </h1>
+
+          {/* Signature Tagline */}
+          <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#F4B62F] tracking-[0.04em] mt-3 sm:mt-4 font-medium drop-shadow-md">
+            “It only tastes expensive”
+          </p>
 
           {/* Supporting Text */}
-          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#E8DFC7] mt-3 leading-relaxed font-light font-sans">
-            Premium chai, coffee, shakes, smoothies, desserts and handcrafted signature drinks in the heart of DHA Phase 1.
+          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#E8DFC7] mt-5 leading-relaxed font-light font-sans">
+            Slow-simmered Karak Chai, specialty espresso, artisan shakes, smoothies and handcrafted Belgian desserts in the heart of DHA Phase 1.
           </p>
 
           {/* CTA Buttons */}
