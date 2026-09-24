@@ -1,0 +1,6 @@
+{
+  "name": "Chai Avenue - It Only Tastes Expensive",
+  "description": "Sophisticated Pakistani café website for Chai Avenue in DHA Phase 1, Lahore. Premium traditional chai, classic coffee, indulgent shakes, smoothies, and handcrafted desserts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
