@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Circular dark background -->
+  <circle cx="200" cy="200" r="196" fill="#0C0C0C" />
+  
+  <!-- Outer double gold border ring -->
+  <circle cx="200" cy="200" r="192" stroke="#F4B62F" stroke-width="3" />
+  <circle cx="200" cy="200" r="185" stroke="#D99A20" stroke-width="1.2" stroke-opacity="0.8" />
+
+  <!-- Official Cup Icon Mark at Top -->
+  <g transform="translate(100, 38) scale(0.625)">
+    <!-- Steam bar 1 (Left) -->
+    <rect x="122" y="55" width="13" height="38" rx="6.5" fill="#F4B62F" />
+    <!-- Steam bar 2 (Middle) -->
+    <rect x="142" y="15" width="13" height="78" rx="6.5" fill="#F4B62F" />
+    <!-- Steam bar 3 (Right) -->
+    <rect x="162" y="36" width="13" height="57" rx="6.5" fill="#F4B62F" />
+
+    <!-- Cup body with cut-out 5-pointed star -->
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M 32 102
+         C 32 99, 34 97, 37 97
+         L 260 97
+         C 263 97, 265 99, 265 102
+         L 255 168
+         C 255 171, 253 173, 250 173
+         C 200 166, 97 166, 47 173
+         C 44 173, 42 171, 42 168
+         Z
+         M 148.5 116
+         L 153.2 129.8
+         L 167.7 130.1
+         L 156.1 138.8
+         L 160.4 152.8
+         L 148.5 144.5
+         L 136.6 152.8
+         L 140.9 138.8
+         L 129.3 130.1
+         L 143.8 129.8
+         Z"
+      fill="#F4B62F"
+    />
+
+    <!-- Cup handle -->
+    <path
+      d="M 256 142
+         C 268 143, 282 153, 282 172
+         C 282 184, 275 194, 266 195"
+      stroke="#F4B62F"
+      stroke-width="12"
+      stroke-linecap="round"
+      fill="none"
+    />
+  </g>
+
+  <!-- Typography -->
+  <!-- CHAI -->
+  <text
+    x="200"
+    y="218"
+    text-anchor="middle"
+    font-family="'Playfair Display', 'Cormorant Garamond', serif"
+    font-size="64"
+    font-weight="700"
+    letter-spacing="9"
+    fill="#F6F0D8"
+  >CHAI</text>
+
+  <!-- AVENUE -->
+  <text
+    x="200"
+    y="262"
+    text-anchor="middle"
+    font-family="'Playfair Display', 'Cormorant Garamond', serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="7"
+    fill="#F6F0D8"
+  >AVENUE</text>
+
+  <!-- IT ONLY TASTES EXPENSIVE -->
+  <text
+    x="200"
+    y="294"
+    text-anchor="middle"
+    font-family="'Montserrat', sans-serif"
+    font-size="10.5"
+    font-weight="500"
+    font-style="italic"
+    letter-spacing="2.8"
+    fill="#D99A20"
+  >IT ONLY TASTES EXPENSIVE</text>
+
+  <!-- Decorative Flourish Ornament -->
+  <g transform="translate(130, 312) scale(0.78)">
+    <circle cx="90" cy="12" r="3.5" fill="#F4B62F" />
+    <circle cx="90" cy="24" r="2" fill="#F4B62F" />
+    <path
+      d="M 90 6 L 90 28 M 80 18 C 70 12, 60 10, 45 18 C 30 26, 20 16, 28 8 C 35 0, 50 12, 62 18 C 72 23, 85 20, 90 18 C 95 20, 108 23, 118 18 C 130 12, 145 0, 152 8 C 160 16, 150 26, 135 18 C 120 10, 110 12, 100 18"
+      stroke="#F4B62F"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      fill="none"
+    />
+    <circle cx="28" cy="8" r="2" fill="#F4B62F" />
+    <circle cx="152" cy="8" r="2" fill="#F4B62F" />
+  </g>
+</svg>

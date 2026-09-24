@@ -1,7 +1,7 @@
 import React from 'react';
 import { MENU_ITEMS, MenuItem } from '../data/menuData';
 import { ArrowDown, Instagram, Sparkles, MapPin, ChevronRight, Clock, Coffee } from 'lucide-react';
-import { ChaiAvenueLogo } from '../components/ChaiAvenueLogo';
+import { ChaiAvenueLogo, ChaiCupMark } from '../components/ChaiAvenueLogo';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -91,14 +91,18 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
-          {/* Subtle Tagline / Star badge */}
-          <div className="inline-flex items-center justify-center gap-2 mb-6 opacity-90">
-            <span className="h-px w-8 bg-[#F4B62F]/60" />
-            <span className="text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase text-[#F4B62F] font-semibold">
-              DHA Phase 1 · Lahore
-            </span>
-            <span className="h-px w-8 bg-[#F4B62F]/60" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
+          {/* Official Chai Avenue Teacup Icon with Steam & Star over CHAI AVENUE */}
+          <div className="flex flex-col items-center justify-center mb-4">
+            <ChaiCupMark className="w-24 h-16 sm:w-32 sm:h-20 text-[#F4B62F] filter drop-shadow-[0_4px_24px_rgba(244,182,47,0.45)] transform hover:scale-105 transition-transform duration-300" />
+            
+            <div className="inline-flex items-center justify-center gap-2 opacity-95 mt-2">
+              <span className="h-px w-8 bg-[#F4B62F]/60" />
+              <span className="text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase text-[#F4B62F] font-semibold">
+                DHA Phase 1 · Lahore
+              </span>
+              <span className="h-px w-8 bg-[#F4B62F]/60" />
+            </div>
           </div>
 
           {/* Main Heading */}

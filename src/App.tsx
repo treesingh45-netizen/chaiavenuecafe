@@ -11,6 +11,7 @@ import { ContactPage } from './pages/ContactPage';
 import { ItemDetailModal } from './components/ItemDetailModal';
 import { ChaiSommelierModal } from './components/ChaiSommelierModal';
 import { MenuItem } from './data/menuData';
+import { ChaiCupMark } from './components/ChaiAvenueLogo';
 import { Sparkles } from 'lucide-react';
 
 export function App() {
@@ -120,7 +121,7 @@ export function App() {
           className="flex items-center gap-2.5 px-4 py-3 bg-[#181818]/90 hover:bg-[#202020] text-[#F4B62F] border border-[#F4B62F]/50 hover:border-[#F4B62F] rounded-full shadow-2xl backdrop-blur-md transition-all transform hover:scale-105 group"
           title="Chai Sommelier: Ask AI for flavor pairings"
         >
-          <Sparkles className="w-4 h-4 text-[#F4B62F] animate-pulse" />
+          <ChaiCupMark className="w-5 h-4 text-[#F4B62F] animate-pulse" />
           <span className="text-xs uppercase font-bold tracking-wider hidden sm:inline text-[#F6F0D8] group-hover:text-[#F4B62F] transition-colors">
             Ask Sommelier
           </span>

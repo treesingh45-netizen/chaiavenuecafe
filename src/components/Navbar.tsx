@@ -61,14 +61,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {/* Zone 2: Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-7">
+            <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-6 flex-shrink-0">
               {navLinks.map((link) => {
                 const isActive = activePage === link.id;
+                const isLongLabel = link.id === 'chai-coffee' || link.id === 'shakes-desserts';
                 return (
                   <button
                     key={link.id}
                     onClick={() => handleLinkClick(link.id)}
-                    className={`text-xs tracking-[0.14em] uppercase font-medium transition-all duration-200 relative py-1 focus:outline-none ${
+                    className={`whitespace-nowrap uppercase font-medium transition-all duration-200 relative py-1 focus:outline-none ${
+                      isLongLabel
+                        ? 'text-[11px] xl:text-[11.5px] tracking-[0.08em] xl:tracking-[0.11em]'
+                        : 'text-xs tracking-[0.12em] xl:tracking-[0.14em]'
+                    } ${
                       isActive
                         ? 'text-[#F4B62F]'
                         : 'text-[#E8DFC7] hover:text-[#F4B62F]'
@@ -84,16 +89,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             {/* Zone 3: Actions */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
               {/* AI Sommelier trigger button */}
               <button
                 onClick={onOpenSommelier}
-                className="flex items-center gap-2 px-3.5 py-2 text-xs tracking-wider uppercase font-medium text-[#F4B62F] border border-[#F4B62F]/40 rounded-sm hover:border-[#F4B62F] hover:bg-[#F4B62F]/10 transition-all focus:outline-none"
+                className="flex items-center gap-2 px-3 py-2 text-xs tracking-wider uppercase font-medium text-[#F4B62F] border border-[#F4B62F]/40 rounded-sm hover:border-[#F4B62F] hover:bg-[#F4B62F]/10 transition-all focus:outline-none whitespace-nowrap"
                 title="Ask Chai Avenue AI Sommelier for flavor recommendations"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#F4B62F]" />
-                <span className="hidden xl:inline">AI Sommelier</span>
-                <span className="xl:hidden">Pairing</span>
+                <span className="hidden lg:inline">AI Sommelier</span>
               </button>
 
               {/* View Menu CTA Button */}

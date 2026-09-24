@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none">
+  <!-- Steam bar 1 (Left: shortest) -->
+  <rect x="122" y="55" width="13" height="38" rx="6.5" fill="#F4B62F" />
+  <!-- Steam bar 2 (Middle: tallest) -->
+  <rect x="142" y="15" width="13" height="78" rx="6.5" fill="#F4B62F" />
+  <!-- Steam bar 3 (Right: medium) -->
+  <rect x="162" y="36" width="13" height="57" rx="6.5" fill="#F4B62F" />
+
+  <!-- Cup body with cut-out 5-pointed star using evenodd fill rule -->
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M 32 102
+       C 32 99, 34 97, 37 97
+       L 260 97
+       C 263 97, 265 99, 265 102
+       L 255 168
+       C 255 171, 253 173, 250 173
+       C 200 166, 97 166, 47 173
+       C 44 173, 42 171, 42 168
+       Z
+       M 148.5 116
+       L 153.2 129.8
+       L 167.7 130.1
+       L 156.1 138.8
+       L 160.4 152.8
+       L 148.5 144.5
+       L 136.6 152.8
+       L 140.9 138.8
+       L 129.3 130.1
+       L 143.8 129.8
+       Z"
+    fill="#F4B62F"
+  />
+
+  <!-- Cup handle (lower right downward curve) -->
+  <path
+    d="M 256 142
+       C 268 143, 282 153, 282 172
+       C 282 184, 275 194, 266 195"
+    stroke="#F4B62F"
+    stroke-width="12"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

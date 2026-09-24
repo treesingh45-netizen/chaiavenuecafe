@@ -1,21 +1,5 @@
-import express from "express";
-import { createServer as createViteServer } from "vite";
-import path from "path";
-import { fileURLToPath } from "url";
-import dotenv from "dotenv";
 import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 
-dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-const PORT = 3000;
-
-app.use(express.json());
-
-// Initialize Google GenAI Server-Side
 const apiKey = process.env.GEMINI_API_KEY || "";
 let aiClient: GoogleGenAI | null = null;
 if (apiKey) {
@@ -64,13 +48,16 @@ SAVORY & STARTERS:
 - Pizzas: Fajita Classic (8" Rs 400, 11" Rs 750, 13" Rs 1000), Chicken Tikka (8" Rs 400, 11" Rs 760, 13" Rs 1040), The Stretch Factor (8" Rs 400, 11" Rs 780, 13" Rs 1080), Chai Avenue Special (11" Rs 850, 13" Rs 1250), Calzone (8" Rs 450, 11" Rs 800)
 `;
 
-// AI Sommelier Endpoint
-app.post("/api/sommelier", async (req, res) => {
+export default async function handler(req: any, res: any) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   try {
-    const { query, mood, selectedItem, budget } = req.body;
+    const { query, mood, selectedItem, budget } = req.body || {};
 
     if (!aiClient) {
-      return res.json(getCuratedRecommendation(query || mood, selectedItem, budget));
+      return res.status(200).json(getCuratedRecommendation(query || mood, selectedItem, budget));
     }
 
     const budgetDirective = budget
@@ -94,7 +81,6 @@ Please provide an expert culinary recommendation from Chai Avenue. Format as JSO
 }
 `;
 
-    // Try official models from gemini-api skill: gemini-flash-latest -> gemini-3.8-flash -> gemini-3.1-flash-lite
     let responseText = "";
     const candidateModels = ["gemini-flash-latest", "gemini-3.8-flash", "gemini-3.1-flash-lite"];
 
@@ -113,27 +99,25 @@ Please provide an expert culinary recommendation from Chai Avenue. Format as JSO
           break;
         }
       } catch {
-        // Continue to next candidate model or fallback smoothly without dumping 503 error payloads
+        // Fallback cleanly without dumping 503 error payloads
       }
     }
 
     if (responseText) {
       try {
         const parsed = JSON.parse(responseText);
-        return res.json(parsed);
+        return res.status(200).json(parsed);
       } catch {
-        // In case of any parsing imperfection, proceed to curated recommendation
+        // Fallback smoothly
       }
     }
 
-    // Curated intelligent fallback if upstream API is in demand surge
-    return res.json(getCuratedRecommendation(query || mood, selectedItem, budget));
+    return res.status(200).json(getCuratedRecommendation(query || mood, selectedItem, budget));
   } catch {
-    return res.json(getCuratedRecommendation(req.body?.query, req.body?.selectedItem, req.body?.budget));
+    return res.status(200).json(getCuratedRecommendation(req.body?.query, req.body?.selectedItem, req.body?.budget));
   }
-});
+}
 
-// Helper for high-quality fallback recommendations matching Chai Avenue menu
 function getCuratedRecommendation(query?: string, selectedItem?: string, budget?: string) {
   const q = (query || "").toLowerCase();
   const s = (selectedItem || "").toLowerCase();
@@ -153,7 +137,6 @@ function getCuratedRecommendation(query?: string, selectedItem?: string, budget?
     };
   }
 
-  // If sweet craving or dessert
   if (q.includes("sweet") || q.includes("dessert") || s.includes("cake") || s.includes("chocolate")) {
     return {
       recommendation: "Balance the rich decadence of our Pastry Lab with our signature Zafrani Chai. The royal saffron and warm spice notes perfectly cut through velvety chocolate.",
@@ -191,27 +174,3 @@ function getCuratedRecommendation(query?: string, selectedItem?: string, budget?
     sommelierTip: "Ask for an extra hot pour on breezy Lahore evenings."
   };
 }
-
-// Setup Vite middleware or static serving
-async function startServer() {
-  const isProd = process.env.NODE_ENV === "production";
-
-  if (!isProd) {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
-    app.use(express.static(path.resolve(__dirname, "dist")));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.resolve(__dirname, "dist", "index.html"));
-    });
-  }
-
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Chai Avenue server running on http://0.0.0.0:${PORT}`);
-  });
-}
-
-startServer();
